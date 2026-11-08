@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
     >
       {/* Decorative background grid and corner notations */}
       <div className="absolute top-24 left-6 md:left-12 font-mono text-[10px] md:text-xs text-[#A6B6A0]/40 tracking-widest hidden sm:block pointer-events-none">
-        LOCATION: CHANDHIGARH 
+        LOCATION: MOHALI | CHANDHIGARH 
       </div>
       <div className="absolute top-24 right-6 md:right-12 font-mono text-[10px] md:text-xs text-[#A6B6A0]/40 tracking-widest hidden sm:block pointer-events-none">
         SYSTEM STATUS: ALL GREEN (FOR NOW)
