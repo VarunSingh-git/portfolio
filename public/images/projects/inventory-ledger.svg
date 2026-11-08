@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgLedger" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07130F"/>
+      <stop offset="50%" stop-color="#10241C"/>
+      <stop offset="100%" stop-color="#05120D"/>
+    </linearGradient>
+    <pattern id="gridPattern5" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#162D23" stroke-width="1" stroke-opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgLedger)"/>
+  <rect width="800" height="500" fill="url(#gridPattern5)"/>
+
+  <!-- Outer Frame -->
+  <rect x="20" y="20" width="760" height="460" rx="16" fill="none" stroke="#264436" stroke-width="2"/>
+  <circle cx="45" cy="45" r="5" fill="#EFA12D"/>
+  <circle cx="62" cy="45" r="5" fill="#10B981"/>
+  <circle cx="79" cy="45" r="5" fill="#38BDF8"/>
+  <text x="105" y="49" fill="#A6B6A0" font-family="monospace" font-size="12" font-weight="bold">AUDIT_LOG // DOUBLE_ENTRY_INVENTORY</text>
+  <rect x="620" y="34" width="140" height="24" rx="12" fill="#153325" stroke="#10B981" stroke-width="1"/>
+  <text x="690" y="50" fill="#34D399" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">✔ ZERO_SHRINKAGE</text>
+
+  <!-- Left: Double Entry Balanced Sheet -->
+  <g transform="translate(60, 95)">
+    <rect width="320" height="295" rx="14" fill="#0C2018" stroke="#1F4232" stroke-width="1.5"/>
+    <text x="25" y="40" fill="#F5ECDD" font-family="sans-serif" font-size="18" font-weight="bold">Immutable Ledger Rows</text>
+    <text x="25" y="60" fill="#A6B6A0" font-family="monospace" font-size="12">Mathematical Balance Check</text>
+
+    <g transform="translate(25, 80)">
+      <rect width="270" height="42" rx="8" fill="#132B21"/>
+      <text x="15" y="26" fill="#F5ECDD" font-family="monospace" font-size="12">BIN_A [DEBIT]: 500 Units</text>
+      <text x="255" y="26" fill="#EFA12D" font-family="monospace" font-size="12" font-weight="bold" text-anchor="end">+ 500</text>
+
+      <rect y="50" width="270" height="42" rx="8" fill="#132B21"/>
+      <text x="15" y="76" fill="#F5ECDD" font-family="monospace" font-size="12">BIN_B [CREDIT]: 500 Units</text>
+      <text x="255" y="76" fill="#38BDF8" font-family="monospace" font-size="12" font-weight="bold" text-anchor="end">- 500</text>
+
+      <rect y="100" width="270" height="48" rx="8" fill="#153828" stroke="#10B981" stroke-width="1.5"/>
+      <text x="15" y="130" fill="#34D399" font-family="monospace" font-size="14" font-weight="bold">NET LEDGER DELTA</text>
+      <text x="255" y="130" fill="#34D399" font-family="monospace" font-size="16" font-weight="bold" text-anchor="end">0.00</text>
+    </g>
+
+    <g transform="translate(25, 240)">
+      <rect width="270" height="34" rx="6" fill="#081711" stroke="#1F4232"/>
+      <text x="135" y="22" fill="#A6B6A0" font-family="monospace" font-size="11" text-anchor="middle">HASH: SHA-256 VERIFIED IMMUTABLE</text>
+    </g>
+  </g>
+
+  <!-- Right: Row-Level Locking & Real-Time Sync -->
+  <g transform="translate(410, 95)">
+    <rect width="330" height="295" rx="14" fill="#0E271E" stroke="#10B981" stroke-width="2"/>
+    
+    <rect x="25" y="25" width="280" height="85" rx="12" fill="#081711" stroke="#10B981" stroke-width="1.5"/>
+    <text x="40" y="55" fill="#A6B6A0" font-family="monospace" font-size="11" font-weight="bold">AUDIT INTEGRITY ASSURANCE</text>
+    <text x="40" y="94" fill="#34D399" font-family="sans-serif" font-size="32" font-weight="bold">100% Verifiable</text>
+
+    <g transform="translate(25, 130)">
+      <rect width="280" height="40" rx="8" fill="#132B21"/>
+      <text x="15" y="25" fill="#F5ECDD" font-family="monospace" font-size="12">Postgres Lock Mechanism</text>
+      <text x="265" y="25" fill="#EFA12D" font-family="monospace" font-size="12" font-weight="bold" text-anchor="end">FOR UPDATE</text>
+
+      <rect y="50" width="280" height="40" rx="8" fill="#132B21"/>
+      <text x="15" y="75" fill="#F5ECDD" font-family="monospace" font-size="12">Automated Reorder Trigger</text>
+      <text x="265" y="75" fill="#38BDF8" font-family="monospace" font-size="12" font-weight="bold" text-anchor="end">AUTOSYNC</text>
+
+      <rect y="100" width="280" height="34" rx="6" fill="#153627" stroke="#10B981" stroke-width="1"/>
+      <text x="140" y="122" fill="#34D399" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">SILENT SHRINKAGE: PHYSICALLY IMPOSSIBLE</text>
+    </g>
+  </g>
+
+  <!-- Bottom Banner -->
+  <rect x="60" y="410" width="680" height="46" rx="8" fill="#0C1F17" stroke="#1F4232"/>
+  <text x="85" y="438" fill="#F5ECDD" font-family="sans-serif" font-size="13" font-weight="bold">POSTGRESQL ACID TRANSACTIONS</text>
+  <text x="360" y="438" fill="#38BDF8" font-family="monospace" font-size="12">• SKU LEVEL TRACKING</text>
+  <text x="590" y="438" fill="#10B981" font-family="monospace" font-size="12">• ZERO LOSS</text>
+</svg>
+

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgLib" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07130E"/>
+      <stop offset="50%" stop-color="#0E231B"/>
+      <stop offset="100%" stop-color="#081510"/>
+    </linearGradient>
+    <linearGradient id="glowAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EFA12D"/>
+      <stop offset="100%" stop-color="#FFD166"/>
+    </linearGradient>
+    <linearGradient id="glowGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#162D23" stroke-width="1" stroke-opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgLib)"/>
+  <rect width="800" height="500" fill="url(#gridPattern)"/>
+
+  <!-- Outer Frame -->
+  <rect x="20" y="20" width="760" height="460" rx="16" fill="none" stroke="#264436" stroke-width="2"/>
+  <circle cx="45" cy="45" r="5" fill="#EFA12D"/>
+  <circle cx="62" cy="45" r="5" fill="#10B981"/>
+  <circle cx="79" cy="45" r="5" fill="#38BDF8"/>
+  <text x="105" y="49" fill="#A6B6A0" font-family="monospace" font-size="12" font-weight="bold">CONCURRENCY_ENGINE // MUTEX_GUARD</text>
+  <rect x="630" y="34" width="130" height="24" rx="12" fill="#153325" stroke="#10B981" stroke-width="1"/>
+  <text x="695" y="50" fill="#34D399" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">● ZERO_LOCKS_LOST</text>
+
+  <!-- Center Graphic: 3 Major Nodes -->
+  <!-- Node 1: Inbound Borrow Request -->
+  <g transform="translate(60, 120)">
+    <rect width="190" height="230" rx="12" fill="#0E241C" stroke="#264436" stroke-width="1.5"/>
+    <rect x="15" y="15" width="44" height="44" rx="8" fill="#183B2E"/>
+    <!-- Incoming icon -->
+    <path d="M 28 37 L 46 37 M 39 30 L 46 37 L 39 44" fill="none" stroke="#EFA12D" stroke-width="3" stroke-linecap="round"/>
+    <text x="15" y="85" fill="#F5ECDD" font-family="sans-serif" font-size="16" font-weight="bold">Borrow Request</text>
+    <text x="15" y="105" fill="#A6B6A0" font-family="monospace" font-size="11">Concurrent Threads</text>
+    
+    <rect x="15" y="130" width="160" height="32" rx="6" fill="#081510" stroke="#1D3A2D"/>
+    <text x="25" y="151" fill="#EFA12D" font-family="monospace" font-size="11">REQ_ID: #8942-A</text>
+    <rect x="15" y="172" width="160" height="32" rx="6" fill="#081510" stroke="#1D3A2D"/>
+    <text x="25" y="193" fill="#38BDF8" font-family="monospace" font-size="11">BURST: 24 CALLS/s</text>
+  </g>
+
+  <!-- Connecting Stream 1 -->
+  <path d="M 250 235 L 305 235" fill="none" stroke="#EFA12D" stroke-width="3" stroke-dasharray="6 4"/>
+  <polygon points="305,231 315,235 305,239" fill="#EFA12D"/>
+
+  <!-- Node 2: Mutex Lock Hub (Center Core) -->
+  <g transform="translate(315, 95)">
+    <rect width="210" height="280" rx="16" fill="#112C21" stroke="#EFA12D" stroke-width="2"/>
+    <rect x="20" y="20" width="50" height="50" rx="10" fill="#EFA12D"/>
+    <!-- Lock Icon -->
+    <path d="M 45 42 L 45 36 C 45 31 39 31 39 36 L 39 42 M 35 42 L 49 42 C 51 42 51 54 49 54 L 35 54 C 33 54 33 42 35 42 Z" fill="#08120E" stroke="#08120E" stroke-width="2"/>
+    
+    <text x="20" y="98" fill="#F5ECDD" font-family="sans-serif" font-size="18" font-weight="bold">Atomic Mutex Lock</text>
+    <text x="20" y="118" fill="#34D399" font-family="monospace" font-size="12" font-weight="bold">STATUS: LOCKED</text>
+
+    <!-- Visual isolation state -->
+    <rect x="20" y="140" width="170" height="40" rx="8" fill="#081711" stroke="#264A38"/>
+    <text x="30" y="165" fill="#F5ECDD" font-family="monospace" font-size="12">P(mutex) == 0</text>
+    
+    <rect x="20" y="190" width="170" height="40" rx="8" fill="#081711" stroke="#264A38"/>
+    <text x="30" y="215" fill="#A6B6A0" font-family="monospace" font-size="12">FIFO Queue: Active</text>
+
+    <rect x="20" y="240" width="170" height="24" rx="4" fill="#EFA12D" fill-opacity="0.15"/>
+    <text x="105" y="256" fill="#EFA12D" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">RACE_CONDITION: ZERO</text>
+  </g>
+
+  <!-- Connecting Stream 2 -->
+  <path d="M 525 235 L 575 235" fill="none" stroke="#10B981" stroke-width="3" stroke-dasharray="6 4"/>
+  <polygon points="575,231 585,235 575,239" fill="#10B981"/>
+
+  <!-- Node 3: Committed State -->
+  <g transform="translate(585, 120)">
+    <rect width="175" height="230" rx="12" fill="#0E241C" stroke="#10B981" stroke-width="1.5"/>
+    <rect x="15" y="15" width="44" height="44" rx="8" fill="#143A29"/>
+    <!-- Checkmark Icon -->
+    <path d="M 28 37 L 35 44 L 46 31" fill="none" stroke="#34D399" stroke-width="3.5" stroke-linecap="round"/>
+    
+    <text x="15" y="85" fill="#F5ECDD" font-family="sans-serif" font-size="16" font-weight="bold">ACID Commit</text>
+    <text x="15" y="105" fill="#10B981" font-family="monospace" font-size="11" font-weight="bold">Qty: Decr(-1)</text>
+
+    <rect x="15" y="130" width="145" height="32" rx="6" fill="#081510" stroke="#1D3A2D"/>
+    <text x="25" y="151" fill="#34D399" font-family="monospace" font-size="11">COMMIT: 200 OK</text>
+    <rect x="15" y="172" width="145" height="32" rx="6" fill="#081510" stroke="#1D3A2D"/>
+    <text x="25" y="193" fill="#A6B6A0" font-family="monospace" font-size="11">OVERDUE CRON: ON</text>
+  </g>
+
+  <!-- Bottom Banner -->
+  <rect x="60" y="405" width="700" height="50" rx="10" fill="#0C1F17" stroke="#1F4232"/>
+  <text x="85" y="435" fill="#F5ECDD" font-family="sans-serif" font-size="13" font-weight="bold">TRANSACTION ISOLATION GUARANTEE</text>
+  <text x="400" y="435" fill="#EFA12D" font-family="monospace" font-size="12">• ZERO COLLISION</text>
+  <text x="580" y="435" fill="#10B981" font-family="monospace" font-size="12">• MONGODB TRANSACTIONS</text>
+</svg>

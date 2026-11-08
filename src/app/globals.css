@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+:root {
+  --color-canvas: #08120E;
+  --color-surface: #0E1F18;
+  --color-surface-elevated: #142B21;
+  --color-surface-hover: #1A362A;
+  --color-border: rgba(166, 182, 160, 0.14);
+  --color-border-focus: rgba(239, 161, 45, 0.5);
+  --color-accent-amber: #EFA12D;
+  --color-accent-emerald: #10B981;
+  --color-text-primary: #F5ECDD;
+  --color-text-secondary: #A6B6A0;
+  --color-text-muted: #62756A;
+}
+
+/* Base dark canvas */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #08120E;
+  color: #F5ECDD;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+  position: relative;
+}
+
+/* Sleek dark technical grid background */
+.paper-grid, .dark-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(166, 182, 160, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(166, 182, 160, 0.04) 1px, transparent 1px);
+}
+
+/* Editorial Serif Typography */
+.font-serif-heading {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Handwritten Script Typography for Letter Signature */
+.font-signature {
+  font-family: var(--font-signature), "Caveat", "Dancing Script", cursive;
+}
+
+/* Subtle glow utilities */
+.glow-amber-sm {
+  box-shadow: 0 0 20px -3px rgba(239, 161, 45, 0.25);
+}
+
+.glow-emerald-sm {
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.2);
+}
+
+/* Carousel scroll snap utilities */
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Floating animation for hero illustration */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+/* Hero circle entry animation */
+@keyframes heroCircleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-hero-circle-in {
+  animation: heroCircleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Ring rotations */
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.animate-ring-outer {
+  animation: rotateClockwise 40s linear infinite;
+}
+
+.animate-ring-middle {
+  animation: rotateCounterClockwise 60s linear infinite;
+}
+
+/* Floating animations for hero chips */
+@keyframes floatChip1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes floatChip2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes floatChip3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-chip-1 { animation: floatChip1 5.5s ease-in-out infinite; }
+.animate-chip-2 { animation: floatChip2 6.5s ease-in-out infinite 0.8s; }
+.animate-chip-3 { animation: floatChip3 6s ease-in-out infinite 1.6s; }
+
+/* Custom Selection */
+::selection {
+  background-color: #EFA12D;
+  color: #08120E;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-float-gentle,
+  .animate-hero-circle-in,
+  .animate-ring-outer,
+  .animate-ring-middle,
+  .animate-chip-1,
+  .animate-chip-2,
+  .animate-chip-3 {
+    animation: none !important;
+    transform: none !important;
+  }
+}
