@@ -87,5 +87,5 @@ export const siteConfig: SiteConfig = {
     phone: "+919456803512",
     phoneDisplay: "+91 94568 03512"
   },
-  resumeUrl: "/resume.pdf"
+  resumeUrl: "https://varun-devv.vercel.app/Varun_Singh_CV.pdf"
 };
